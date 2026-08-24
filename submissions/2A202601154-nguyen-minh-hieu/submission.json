@@ -8,33 +8,33 @@
   },
   "industry": "mobility-autonomous-driving",
   "product_context": {
-    "product_name": "SafeRoute AV Safety Supervisor",
+    "product_name": "SafeRoute — Bộ giám sát an toàn AV",
     "product_stage": "discovery",
-    "problem_statement": "Fleet safety operators need a timely, evidence-rich way to identify when a developmental autonomous vehicle may be outside its approved operating design domain, without delegating vehicle-control responsibility to the console.",
-    "target_users": ["Remote fleet safety operators", "On-road safety drivers"],
-    "value_hypothesis": "Earlier, explainable safety escalations will reduce unsafe autonomous driving exposure while keeping only reviewed vehicles available for supervised test routes.",
-    "in_scope": ["Decision support for human pause, manual-takeover, and incident escalation on pre-approved test routes", "Operator-facing perception, ODD, sensor-health, and alert-freshness evidence", "A console safety latch that prevents return-to-test authorization until human review is recorded"],
-    "non_goals": ["Vehicle steering, braking, throttle, or route selection", "Automatic vehicle-control commands or a substitute for the safety driver's immediate manual-control responsibility", "Driverless commercial passenger service", "Facial recognition, biometric inference, or raw cabin-video retention"],
-    "user_journey_moment": "During supervised public-road testing, immediately before or during an ODD, perception, or driver-attention alert.",
+    "problem_statement": "Nhân sự vận hành an toàn đội xe cần một cách kịp thời, giàu bằng chứng để nhận diện khi xe tự hành đang phát triển có thể nằm ngoài miền thiết kế vận hành được phê duyệt, mà không chuyển trách nhiệm điều khiển phương tiện cho bảng điều khiển.",
+    "target_users": ["Nhân viên vận hành an toàn đội xe từ xa", "Tài xế an toàn trên đường"],
+    "value_hypothesis": "Cảnh báo leo thang về an toàn sớm hơn và có thể giải thích sẽ giảm mức phơi nhiễm với vận hành tự hành không an toàn, đồng thời chỉ duy trì những phương tiện đã được rà soát trên các tuyến thử nghiệm có giám sát.",
+    "in_scope": ["Hỗ trợ quyết định để con người tạm dừng, tiếp quản thủ công và leo thang sự cố trên các tuyến thử nghiệm đã được phê duyệt", "Bằng chứng về nhận thức, ODD, tình trạng cảm biến và độ mới của cảnh báo hiển thị cho người vận hành", "Chốt an toàn trên bảng điều khiển, ngăn cấp quyền quay lại thử nghiệm cho đến khi có bản ghi rà soát của con người"],
+    "non_goals": ["Lái, phanh, ga hoặc chọn tuyến đường cho phương tiện", "Lệnh điều khiển phương tiện tự động hoặc thay thế trách nhiệm tiếp quản ngay lập tức của tài xế an toàn", "Dịch vụ chở khách thương mại không có tài xế", "Nhận diện khuôn mặt, suy luận sinh trắc học hoặc lưu giữ video trong cabin thô"],
+    "user_journey_moment": "Trong thử nghiệm đường công cộng có giám sát, ngay trước hoặc trong khi xuất hiện cảnh báo về ODD, nhận thức hoặc mức độ chú ý của tài xế.",
     "target_launch_or_review_date": "2026-10-15",
     "automation_level": "decision-support",
-    "fallback_experience": "On an out-of-policy ODD, critical sensor, alert-integrity, or operator-availability signal, the console latches an unsafe status and shows a manual-takeover/pause instruction. The safety driver takes manual control without waiting for a remote recommendation; the remote operator and safety desk receive the evidence, and the console cannot mark the vehicle authorized to return to autonomous testing until a Fleet Safety Lead records approval after review.",
+    "fallback_experience": "Khi có tín hiệu ODD ngoài chính sách, cảm biến nghiêm trọng, tính toàn vẹn cảnh báo hoặc khả dụng của người vận hành không đạt yêu cầu, bảng điều khiển sẽ chốt trạng thái không an toàn và hiển thị chỉ dẫn tiếp quản thủ công hoặc tạm dừng. Tài xế an toàn tiếp quản ngay mà không chờ khuyến nghị từ xa; người vận hành từ xa và bàn trực an toàn nhận bằng chứng, còn bảng điều khiển không thể ghi phương tiện đủ điều kiện quay lại thử nghiệm tự hành cho đến khi Trưởng nhóm An toàn Đội xe phê duyệt sau rà soát.",
     "decision_reversibility": "hard-to-reverse"
   },
   "system_profile": {
-    "purpose": "Surface current, safety-relevant evidence to help authorized humans instruct a manual takeover or pause an AV test before unsafe continued operation; the system cannot issue vehicle-control commands.",
-    "user_groups": ["Remote safety operators", "Safety drivers", "Fleet safety managers"],
-    "decision_impact": "A recommendation can cause a human to pause a public-road test; failure to escalate can expose pedestrians, cyclists, passengers, and road users to injury.",
-    "data_types": ["Vehicle telemetry", "Camera-derived object, trajectory, confidence, and freshness labels", "Route and ODD status", "Safety-driver availability signals; no facial recognition, biometric inference, or raw cabin-video retention"],
-    "deployment_context": "Research-only simulation and closed-course scenarios now; a proposed limited, daylight, supervised public-road test fleet on named routes in Vietnam later. No passenger service or driverless deployment is in scope.",
-    "target_markets": ["Vietnam"],
+    "purpose": "Hiển thị bằng chứng hiện hành liên quan đến an toàn để người có thẩm quyền chỉ dẫn tiếp quản thủ công hoặc tạm dừng thử nghiệm AV trước khi tiếp tục vận hành không an toàn; hệ thống không thể phát lệnh điều khiển phương tiện.",
+    "user_groups": ["Nhân viên vận hành an toàn từ xa", "Tài xế an toàn", "Quản lý an toàn đội xe"],
+    "decision_impact": "Một khuyến nghị có thể khiến con người tạm dừng thử nghiệm trên đường công cộng; không leo thang có thể khiến người đi bộ, người đi xe đạp, hành khách và người tham gia giao thông bị chấn thương.",
+    "data_types": ["Dữ liệu đo từ xa của phương tiện", "Nhãn đối tượng, quỹ đạo, độ tin cậy và độ mới được suy ra từ camera", "Trạng thái tuyến đường và ODD", "Tín hiệu khả dụng của tài xế an toàn; không nhận diện khuôn mặt, suy luận sinh trắc học hoặc lưu giữ video thô trong cabin"],
+    "deployment_context": "Hiện chỉ nghiên cứu bằng mô phỏng và kịch bản đường chạy khép kín; sau đó đề xuất một đội xe thử nghiệm đường công cộng quy mô hạn chế, ban ngày, có giám sát trên các tuyến được chỉ định tại Việt Nam. Không bao gồm dịch vụ chở khách hoặc triển khai không có tài xế.",
+    "target_markets": ["Việt Nam"],
     "system_boundary": {
-      "model": "Rule-assisted risk-ranking model with confidence thresholds that require independent validation and cannot issue vehicle-control commands",
-      "application": "Operator console that displays alert evidence, data freshness, a manual-takeover/pause recommendation, and a return-to-test safety latch",
-      "people": ["Safety driver", "Remote safety operator", "Fleet safety lead", "Pedestrians and other road users"],
-      "vendors": ["Vehicle sensor supplier", "Cloud telemetry provider"],
-      "upstream_inputs": ["Sensor fusion events", "ODD policy", "Vehicle health telemetry", "Operator availability signal"],
-      "downstream_decisions": ["Safety driver's manual takeover or human pause", "Incident escalation", "Fleet Safety Lead return-to-test authorization"]
+      "model": "Mô hình xếp hạng rủi ro có hỗ trợ bởi luật, dùng các ngưỡng độ tin cậy cần được xác thực độc lập và không thể phát lệnh điều khiển phương tiện",
+      "application": "Bảng điều khiển cho người vận hành hiển thị bằng chứng cảnh báo, độ mới dữ liệu, khuyến nghị tiếp quản thủ công hoặc tạm dừng và chốt an toàn trước khi quay lại thử nghiệm",
+      "people": ["Tài xế an toàn", "Nhân viên vận hành an toàn từ xa", "Trưởng nhóm An toàn Đội xe", "Người đi bộ và người tham gia giao thông khác"],
+      "vendors": ["Nhà cung cấp cảm biến phương tiện", "Nhà cung cấp dữ liệu đo từ xa trên đám mây"],
+      "upstream_inputs": ["Sự kiện hợp nhất cảm biến", "Chính sách ODD", "Dữ liệu đo từ xa về tình trạng phương tiện", "Tín hiệu khả dụng của người vận hành"],
+      "downstream_decisions": ["Tài xế an toàn tiếp quản thủ công hoặc con người tạm dừng", "Leo thang sự cố", "Trưởng nhóm An toàn Đội xe cấp quyền quay lại thử nghiệm"]
     }
   },
   "industry_risk_snapshot": {
@@ -43,36 +43,36 @@
     "sensitive_data": 3,
     "affected_scale": 3,
     "human_review_need": 5,
-    "rationale": "A missed, delayed, stale, or poorly understood escalation during public-road testing can contribute to serious injury or death and may be hard to reverse. The proposed pilot constrains scale, but pedestrians and other non-customers cannot opt out. Sensitive-data risk is scored 3 because route-linked telemetry and camera-derived labels can still concern road users and safety drivers even though face recognition, biometric inference, and raw cabin-video retention are out of scope. The NTSB Tempe report shows that operator attention, system limits, and safety governance matter together."
+    "rationale": "Một cảnh báo leo thang bị bỏ sót, chậm, cũ hoặc khó hiểu trong thử nghiệm đường công cộng có thể góp phần gây chấn thương nghiêm trọng hoặc tử vong và khó đảo ngược. Thí điểm đề xuất giới hạn quy mô, nhưng người đi bộ và các đối tượng không phải khách hàng khác không thể từ chối bị tác động. Rủi ro dữ liệu nhạy cảm được chấm 3 vì dữ liệu đo từ xa gắn với tuyến đường và nhãn suy ra từ camera vẫn có thể liên quan đến người tham gia giao thông và tài xế an toàn, dù nhận diện khuôn mặt, suy luận sinh trắc học và lưu giữ video thô trong cabin nằm ngoài phạm vi. Báo cáo NTSB về Tempe cho thấy sự chú ý của người vận hành, giới hạn hệ thống và quản trị an toàn đều quan trọng."
   },
   "legal_classification": {
     "vietnam": {
       "status": "uncertain-requires-legal-review",
-      "rationale": "Law 134/2025 applies to AI activities in Vietnam. Decision 33/2026's transport category may apply only if the final integrated system controls the vehicle or operates without continuous human supervision; SafeRoute's stated decision-support boundary and continuous safety driver leave that unresolved. Before a public-road pilot, counsel must document classification, provider/deployer roles, transport-test authorization, any notification or conformity-assessment duty, incident duties, and personal-data basis, retention, and transfer controls.",
+      "rationale": "Luật 134/2025 điều chỉnh hoạt động AI tại Việt Nam. Nhóm giao thông của Quyết định 33/2026 chỉ có thể áp dụng nếu hệ thống tích hợp cuối cùng điều khiển phương tiện hoặc vận hành không có sự giám sát liên tục của con người; ranh giới hỗ trợ quyết định và tài xế an toàn giám sát liên tục của SafeRoute khiến điểm này chưa được xác định. Trước thí điểm đường công cộng, cố vấn pháp lý phải lập hồ sơ phân loại, vai trò nhà cung cấp hoặc bên triển khai, việc cấp phép thử nghiệm giao thông, mọi nghĩa vụ thông báo hoặc đánh giá sự phù hợp, nghĩa vụ về sự cố, cùng cơ sở xử lý, lưu giữ và kiểm soát chuyển dữ liệu cá nhân.",
       "source_ids": ["SRC-08", "SRC-09", "SRC-10", "SRC-12"]
     },
     "eu": {
       "status": "uncertain-requires-legal-review",
-      "rationale": "A prospective EU assessment is unresolved. Article 6 may be relevant only if the final intended purpose makes SafeRoute an AI safety component of a product within Annex I and the product requires third-party conformity assessment. The current decision-support boundary, vehicle integration, provider/deployer role, market-placement facts, and applicable dates have not been established; this is not a compliance conclusion.",
+      "rationale": "Đánh giá triển vọng tại EU chưa được xác định. Điều 6 chỉ có thể liên quan nếu mục đích dự kiến cuối cùng khiến SafeRoute trở thành thành phần an toàn AI của một sản phẩm thuộc Phụ lục I và sản phẩm đó cần đánh giá sự phù hợp bởi bên thứ ba. Ranh giới hỗ trợ quyết định, mức độ tích hợp phương tiện, vai trò nhà cung cấp hoặc bên triển khai, thực tế đưa ra thị trường và các mốc thời gian áp dụng hiện chưa được xác lập; đây không phải kết luận tuân thủ.",
       "source_ids": ["SRC-05"]
     },
-    "other_markets": "No market assessment is made beyond Vietnam and a prospective EU comparison; expansion requires a jurisdiction-specific review.",
+    "other_markets": "Chưa đánh giá thị trường nào ngoài Việt Nam và so sánh triển vọng với EU; mở rộng cần được rà soát theo từng khu vực pháp lý.",
     "legal_review_required": true
   },
   "product_metrics": {
-    "success_kpi": "For each independently observed research test week, 100% of independently adjudicated critical ODD, perception, or operator-availability scenarios present a complete evidence bundle (ODD state, sensor health, alert freshness, confidence, and driver-availability state) to the designated operator before a documented pause-or-continue disposition; report the scenario count and scenario mix.",
-    "risk_kri": "Per supervised research test week: 0 confirmed critical missed escalations and 0 alert-evidence-integrity failures; report the numerator, independently adjudicated critical-scenario denominator, route kilometers where applicable, and false-alert burden. Any non-zero result pauses the affected route or software version for investigation.",
-    "guardrail_metric": "Hard stop: 0 autonomous test kilometers while any critical ODD, sensor, alert-integrity, or human-operator-availability condition is outside approved policy. On detection, the safety driver takes manual control and the route remains paused until independent review records a safe return-to-test decision.",
-    "review_cadence": "Safety review weekly and before each route or ODD expansion; re-review and re-classify immediately after a collision, near miss, KRI or guardrail breach, material model, threshold, data, sensor, vendor, vehicle, route, or market change."
+    "success_kpi": "Trong mỗi tuần thử nghiệm nghiên cứu được quan sát độc lập, 100% kịch bản ODD, nhận thức hoặc khả dụng của người vận hành được đánh giá là nghiêm trọng phải cung cấp cho người vận hành được chỉ định một gói bằng chứng đầy đủ gồm trạng thái ODD, sức khỏe cảm biến, độ mới cảnh báo, độ tin cậy và trạng thái khả dụng của tài xế trước khi có quyết định tạm dừng hoặc tiếp tục được ghi nhận; báo cáo số lượng và tập hợp kịch bản.",
+    "risk_kri": "Trong mỗi tuần thử nghiệm nghiên cứu có giám sát: có 0 cảnh báo leo thang nghiêm trọng bị bỏ sót đã xác nhận và 0 lỗi tính toàn vẹn của bằng chứng cảnh báo; báo cáo tử số, mẫu số là các kịch bản nghiêm trọng được đánh giá độc lập, số kilomet tuyến đường khi phù hợp và gánh nặng cảnh báo sai. Bất kỳ kết quả nào khác 0 đều tạm dừng tuyến đường hoặc phiên bản phần mềm bị ảnh hưởng để điều tra.",
+    "guardrail_metric": "Dừng cứng: 0 kilomet thử nghiệm tự hành khi bất kỳ điều kiện ODD nghiêm trọng, cảm biến, tính toàn vẹn cảnh báo hoặc khả dụng của người vận hành đều nằm ngoài chính sách đã phê duyệt. Khi phát hiện, tài xế an toàn tiếp quản thủ công và tuyến đường vẫn bị tạm dừng cho đến khi rà soát độc lập ghi nhận quyết định quay lại thử nghiệm an toàn.",
+    "review_cadence": "Rà soát an toàn hằng tuần và trước mỗi lần mở rộng tuyến đường hoặc ODD; rà soát lại và phân loại lại ngay sau va chạm, sự cố suýt xảy ra, vi phạm KRI hoặc ngưỡng bảo vệ cứng, hoặc thay đổi trọng yếu về mô hình, ngưỡng, dữ liệu, cảm biến, nhà cung cấp, phương tiện, tuyến đường hay thị trường."
   },
   "release_decision": {
-    "accountable_product_owner": "Mobility Product Owner",
-    "risk_acceptance_owner": "Chief Safety Officer",
-    "independent_reviewer": "Independent Vehicle Safety Assessor",
+    "accountable_product_owner": "Chủ sở hữu sản phẩm mảng giao thông tự hành",
+    "risk_acceptance_owner": "Giám đốc An toàn",
+    "independent_reviewer": "Chuyên gia đánh giá an toàn phương tiện độc lập",
     "decision": "research-only",
-    "release_blockers": ["GAP-01: ODD, alert-integrity, and manual-takeover safety case is not accepted", "GAP-02: Independent scenario, workload, and alert-burden evaluation is incomplete", "GAP-03: Vietnam AI classification, transport authorization, and incident-governance gate is open", "GAP-04: Vietnam personal-data roles, retention, and transfer gate is open", "GAP-05: Independent post-incident restart-veto control is not demonstrated"],
-    "release_conditions": ["Research is limited to simulation and closed-course scenarios using synthetic or de-identified data; no public-road autonomous test kilometers or live road-user imagery are permitted.", "No public-road pilot until GAP-01 through GAP-05 are done, the independent assessor accepts the evidence, and the Chief Safety Officer accepts residual risk.", "Any critical missed escalation, alert-evidence-integrity failure, safety incident, or legal reclassification pauses scope expansion."],
-    "next_review_trigger": "2026-10-15; any collision or near-miss investigation; KRI or guardrail breach; legal reclassification; or material vehicle, sensor, vendor, route, data-flow, or market change.",
-    "residual_risk_rationale": "Severity remains 5 because a missed or corrupted alert can still expose non-consenting road users to physical harm, and a safety driver may not be ready merely because an alert was acknowledged. The proposed controls are planned rather than demonstrated, so their residual likelihood is not yet acceptable. Research-only is appropriate until the safety case, independent scenario evidence, legal gates, and independent restart authority are complete."
+    "release_blockers": ["GAP-01: Chứng cứ an toàn về ODD, tính toàn vẹn cảnh báo và tiếp quản thủ công chưa được chấp nhận", "GAP-02: Đánh giá độc lập về kịch bản, tải công việc và gánh nặng cảnh báo chưa hoàn tất", "GAP-03: Cổng phân loại AI, cấp phép giao thông và quản trị sự cố tại Việt Nam còn mở", "GAP-04: Cổng về vai trò dữ liệu cá nhân, lưu giữ và chuyển dữ liệu tại Việt Nam còn mở", "GAP-05: Chưa chứng minh được biện pháp phủ quyết khởi động lại độc lập sau sự cố"],
+    "release_conditions": ["Nghiên cứu chỉ giới hạn ở mô phỏng và kịch bản đường chạy khép kín dùng dữ liệu tổng hợp hoặc đã khử định danh; không cho phép kilomet thử nghiệm tự hành trên đường công cộng hoặc hình ảnh trực tiếp của người tham gia giao thông.", "Không thí điểm đường công cộng cho đến khi GAP-01 đến GAP-05 hoàn thành, chuyên gia đánh giá độc lập chấp nhận bằng chứng và Giám đốc An toàn chấp nhận rủi ro còn lại.", "Bất kỳ cảnh báo leo thang nghiêm trọng bị bỏ sót, lỗi tính toàn vẹn bằng chứng cảnh báo, sự cố an toàn hoặc phân loại pháp lý lại nào đều tạm dừng mở rộng phạm vi."],
+    "next_review_trigger": "2026-10-15; bất kỳ điều tra va chạm hoặc sự cố suýt xảy ra nào; vi phạm KRI hoặc ngưỡng bảo vệ cứng; phân loại pháp lý lại; hoặc thay đổi trọng yếu về phương tiện, cảm biến, nhà cung cấp, tuyến đường, luồng dữ liệu hay thị trường.",
+    "residual_risk_rationale": "Mức độ nghiêm trọng vẫn là 5 vì cảnh báo bị bỏ sót hoặc bị sai hỏng vẫn có thể khiến người tham gia giao thông không đồng thuận bị tổn hại thể chất, và tài xế an toàn có thể chưa sẵn sàng chỉ vì đã xác nhận cảnh báo. Các biện pháp đề xuất mới ở kế hoạch thay vì đã được chứng minh, nên khả năng xảy ra rủi ro còn lại chưa thể chấp nhận. Chỉ nghiên cứu là phù hợp cho đến khi hoàn tất hồ sơ an toàn, bằng chứng kịch bản độc lập, các cổng pháp lý và thẩm quyền độc lập để phủ quyết khởi động lại."
   }
 }
