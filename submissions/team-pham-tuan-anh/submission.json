@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "student_name": "Phạm Tuấn Anh",
+    "student_id": "TEAM-ANH",
+    "group_id": "TEAM-RAI-03",
+    "submitted_at": "2026-08-24T16:00:00+07:00"
+  },
+  "industry": "media-news-social-political-assistant",
+  "product_context": {
+    "product_name": "CivicBrief News Assistant",
+    "product_stage": "discovery",
+    "problem_statement": "Adults need a concise way to compare source-attributed civic news while preserving access to context and avoiding unverified claims, personalized political persuasion, or opaque content suppression.",
+    "target_users": ["Adult readers", "Editorial verification staff"],
+    "value_hypothesis": "Grounded summaries with visible source provenance and editor review for high-reach civic topics will improve informed reading without increasing unverified political claims or harmful amplification.",
+    "in_scope": ["Summaries of editor-approved licensed or public-interest sources", "Source citations and uncertainty labels", "Human editorial escalation for election, violence, and civic-safety topics"],
+    "non_goals": ["Political advertising targeting", "Psychographic profiling", "Automated removal, ranking, or suppression of user-generated posts", "Publishing election results or emergency claims without editor approval"],
+    "user_journey_moment": "When an adult asks for a comparison or summary of an editor-approved civic news topic before sharing or forming a view.",
+    "target_launch_or_review_date": "2026-10-15",
+    "automation_level": "recommendation",
+    "fallback_experience": "If grounding is missing, topic risk is high, or editorial review is unavailable, the assistant withholds the generated summary, links to the approved source list, and queues the request for an editor rather than guessing.",
+    "decision_reversibility": "partially-reversible"
+  },
+  "system_profile": {
+    "purpose": "Help adult readers navigate editor-approved civic information through cited summaries while keeping high-risk political content under meaningful editorial control.",
+    "user_groups": ["Adult readers", "Editors and fact-checkers", "Trust and safety reviewers"],
+    "decision_impact": "A summary or recommendation can influence what people believe or share about public affairs; a mistake can distort civic discourse, enable manipulation, or deprive people of information.",
+    "data_types": ["User query text", "Approved publisher content and citations", "Topic-risk labels", "Minimal session telemetry; no political-affinity profiles"],
+    "deployment_context": "Research-only Vietnamese-language prototype using a fixed approved corpus, no user-generated post ingestion, no advertising integration, and no personalized political ranking.",
+    "target_markets": ["Vietnam"],
+    "system_boundary": {
+      "model": "Retrieval-grounded language model with source-citation and abstention policies",
+      "application": "Civic news comparison interface with editorial escalation queue",
+      "people": ["Adult reader", "Editor", "Fact-checker", "People discussed in coverage", "Affected communities"],
+      "vendors": ["Cloud model provider", "Approved content-index provider"],
+      "upstream_inputs": ["Reader query", "Editor-approved corpus", "Topic-risk policy", "Source metadata"],
+      "downstream_decisions": ["Editor approves, corrects, or withholds a summary", "Reader sees cited information", "Trust and safety incident escalation"]
+    }
+  },
+  "industry_risk_snapshot": {
+    "harm_severity": 4,
+    "high_stakes": 5,
+    "sensitive_data": 4,
+    "affected_scale": 4,
+    "human_review_need": 5,
+    "rationale": "Civic information systems can influence political participation, safety, and access to information at population scale. Personalized political data or weakly contextualized summaries can harm users and non-users, while removal or amplification errors may be difficult to repair after sharing. The research prototype avoids ad targeting and user-generated ranking, but cases involving political data and content governance support strict editorial authority and event-triggered review."
+  },
+  "legal_classification": {
+    "vietnam": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "The intended system processes reader queries and civic content in Vietnam. This pack lacks final facts on controller roles, content obligations, cross-border processing, and whether planned features create additional legal duties.",
+      "source_ids": ["SRC-06"]
+    },
+    "eu": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "The current boundary excludes political profiling and automated moderation, but an EU expansion could change the assessment through recommendation, content, data-protection, and platform-law facts. A legal review must assess the final intended purpose and deployment context.",
+      "source_ids": ["SRC-05"]
+    },
+    "other_markets": "No assessment is made beyond Vietnam and a prospective EU comparison; publishing, election, platform, and data rules require local review.",
+    "legal_review_required": true
+  },
+  "product_metrics": {
+    "success_kpi": "At least 90% of research users can identify the cited publisher and uncertainty label for a sampled civic summary in post-task testing.",
+    "risk_kri": "Weekly independently reviewed rate of unsupported material claims in published research summaries is at most 1 per 1,000, stratified by election, violence, and health topics.",
+    "guardrail_metric": "Hard stop: 0 high-reach election, violence-incitement, or emergency-information summaries may publish without source citations and recorded editor approval.",
+    "review_cadence": "Trust and editorial review weekly and before corpus or feature expansion; re-review after any guardrail breach, credible complaint, election event, violent-crisis escalation, vendor/model change, or market change."
+  },
+  "release_decision": {
+    "accountable_product_owner": "Civic Information Product Owner",
+    "risk_acceptance_owner": "Head of Trust and Safety",
+    "independent_reviewer": "Independent Editorial Standards Reviewer",
+    "decision": "research-only",
+    "release_blockers": ["GAP-01: Source-grounding and editor-approval gate is not demonstrated", "GAP-02: Local-context escalation and appeal process is incomplete", "GAP-03: Vietnam privacy, content, and cross-border legal review is open"],
+    "release_conditions": ["Use a fixed editor-approved corpus and synthetic research queries only", "Do not publish, target, rank, or remove political content until blockers are done and Head of Trust and Safety accepts residual risk"],
+    "next_review_trigger": "2026-10-15, any unsupported high-risk claim, guardrail breach, credible manipulation complaint, election or violence escalation, or material corpus, vendor, model, or market change.",
+    "residual_risk_rationale": "Citations and an editor queue reduce but cannot eliminate context loss, uneven language coverage, hidden persuasion, privacy risk, or rapid real-world amplification. Research-only keeps the assistant from becoming a distribution or enforcement mechanism before these controls are independently evidenced."
+  }
+}
