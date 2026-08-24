@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "student_name": "Nguyễn Ngọc Chi",
+    "student_id": "TEAM-CHI",
+    "group_id": "TEAM-RAI-03",
+    "submitted_at": "2026-08-24T16:00:00+07:00"
+  },
+  "industry": "healthcare-assistant",
+  "product_context": {
+    "product_name": "CareBridge Symptom Triage Assistant",
+    "product_stage": "discovery",
+    "problem_statement": "Adults seeking non-emergency health information need a consistent way to recognize warning signs and reach an appropriate licensed care channel without treating an AI response as a diagnosis.",
+    "target_users": ["Adult patients", "Clinic triage nurses"],
+    "value_hypothesis": "A bounded assistant that escalates red-flag symptoms to a nurse queue will increase timely appropriate referrals without reducing equity or safety.",
+    "in_scope": ["Vietnamese-language symptom education from approved content", "Nurse-queue escalation for configured red flags", "Human review of all urgent or low-confidence interactions"],
+    "non_goals": ["Diagnosis, prescriptions, or treatment plans", "Emergency dispatch decisions", "Use by minors or use of real clinical records for model training"],
+    "user_journey_moment": "After an adult describes symptoms and before they decide whether to contact a clinic, emergency service, or self-care resource.",
+    "target_launch_or_review_date": "2026-10-15",
+    "automation_level": "decision-support",
+    "fallback_experience": "If the assistant is unavailable, low-confidence, or sees a red flag, it displays emergency and clinic contact options, creates no diagnosis, and transfers the interaction summary to a triage nurse when the user consents.",
+    "decision_reversibility": "partially-reversible"
+  },
+  "system_profile": {
+    "purpose": "Provide bounded health-information support and route possible urgent symptoms to qualified human triage without making clinical decisions.",
+    "user_groups": ["Adults seeking clinic information", "Licensed triage nurses", "Clinical safety reviewers"],
+    "decision_impact": "The response may influence when a person seeks care; a missed escalation can delay care while an incorrect response can cause anxiety, burden, or unsafe reliance.",
+    "data_types": ["User-entered symptoms", "Age band only", "Conversation safety flags", "Consent and referral metadata; no medical-record ingestion"],
+    "deployment_context": "Research-only Vietnamese-language web prototype with scripted test conversations and no connection to emergency services or an electronic health record.",
+    "target_markets": ["Vietnam"],
+    "system_boundary": {
+      "model": "Retrieval-grounded language model limited to clinically approved triage content",
+      "application": "Web chat interface with emergency banner and nurse escalation option",
+      "people": ["Adult user", "Triage nurse", "Clinical safety lead", "Caregivers and family members"],
+      "vendors": ["Cloud model provider", "Secure messaging provider"],
+      "upstream_inputs": ["User-entered symptom text", "Approved clinical content", "Red-flag policy", "Consent state"],
+      "downstream_decisions": ["Human nurse triage", "User contacts emergency or clinic service", "Safety incident review"]
+    }
+  },
+  "industry_risk_snapshot": {
+    "harm_severity": 5,
+    "high_stakes": 5,
+    "sensitive_data": 5,
+    "affected_scale": 3,
+    "human_review_need": 5,
+    "rationale": "A symptom response can influence time-sensitive care and may be partly irreversible if it delays a user seeking help. Health information is sensitive, and vulnerable users may over-rely on a seemingly empathetic assistant. The narrow research prototype limits scale, but published studies and the Tessa incident show that proxy choices, validation gaps, and unsafe advice can still create inequitable or clinically harmful outcomes."
+  },
+  "legal_classification": {
+    "vietnam": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "The intended product processes health-adjacent personal data and may influence care-seeking. This pack does not establish the exact controller, consent, health-service, or data-transfer facts required to determine the Vietnam legal position.",
+      "source_ids": ["SRC-06"]
+    },
+    "eu": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "The no-diagnosis boundary may affect classification, while an intended medical-device or safety-component use could engage EU AI Act high-risk rules. Legal review must assess intended purpose, medical-device status, and target market before expansion.",
+      "source_ids": ["SRC-05"]
+    },
+    "other_markets": "No assessment is made beyond Vietnam and a prospective EU comparison; local health-service and data rules require separate review.",
+    "legal_review_required": true
+  },
+  "product_metrics": {
+    "success_kpi": "At least 90% of consenting red-flag test conversations receive a nurse-queue handoff within 10 minutes during staffed pilot hours.",
+    "risk_kri": "Weekly clinically reviewed unsafe-response rate is at most 1 per 1,000 test conversations, reported by red-flag category and language variant.",
+    "guardrail_metric": "Hard stop: 0 conversations with a configured emergency red flag may end with self-care-only advice or without emergency and human-care routing.",
+    "review_cadence": "Clinical safety review weekly and before any content/model expansion; re-review after any safety incident, guardrail breach, complaint, content/vendor change, or new market."
+  },
+  "release_decision": {
+    "accountable_product_owner": "Healthcare Product Owner",
+    "risk_acceptance_owner": "Clinical Safety Officer",
+    "independent_reviewer": "Independent Licensed Clinician",
+    "decision": "research-only",
+    "release_blockers": ["GAP-01: Emergency escalation and nurse-handoff protocol is not validated", "GAP-02: Clinical and equity validation of responses is incomplete", "GAP-03: Vietnam privacy and health-service legal review is open"],
+    "release_conditions": ["Research uses scripted or synthetic conversations only", "No public symptom service until all blockers are done, a clinical safety officer accepts residual risk, and independent validation passes"],
+    "next_review_trigger": "2026-10-15, any unsafe-response finding, a missed emergency escalation, a guardrail breach, or a material model, content, vendor, or market change.",
+    "residual_risk_rationale": "Grounded content and human escalation reduce but cannot remove the risk of harmful advice, missed urgency, privacy loss, and inequitable performance. Research-only prevents the prototype from becoming a substitute for qualified care before evidence and operating controls exist."
+  }
+}
