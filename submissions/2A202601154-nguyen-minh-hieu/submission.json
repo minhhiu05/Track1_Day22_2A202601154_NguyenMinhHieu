@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "student_name": "Nguyễn Minh Hiếu",
+    "student_id": "2A202601154",
+    "group_id": "TEAM-RAI-03",
+    "submitted_at": "2026-08-24T16:00:00+07:00"
+  },
+  "industry": "mobility-autonomous-driving",
+  "product_context": {
+    "product_name": "SafeRoute AV Safety Supervisor",
+    "product_stage": "discovery",
+    "problem_statement": "Fleet safety operators need a timely, evidence-rich way to detect when a developmental autonomous vehicle is outside its approved operating design domain.",
+    "target_users": ["Remote fleet safety operators", "On-road safety drivers"],
+    "value_hypothesis": "Earlier, explainable safety escalations will reduce unsafe autonomous driving exposure while keeping only reviewed vehicles available for supervised test routes.",
+    "in_scope": ["Decision support for pause, manual-takeover, and incident escalation on pre-approved test routes", "Operator-facing perception and ODD evidence"],
+    "non_goals": ["Vehicle steering, braking, or route selection", "Driverless commercial passenger service", "Replacing the safety driver's legal responsibility"],
+    "user_journey_moment": "During supervised public-road testing, immediately before or during an ODD, perception, or driver-attention alert.",
+    "target_launch_or_review_date": "2026-10-15",
+    "automation_level": "decision-support",
+    "fallback_experience": "The system removes its recommendation, alerts the operator and safety driver to pause testing, and routes the event to the safety desk; the vehicle continues only after a human safety lead records approval.",
+    "decision_reversibility": "hard-to-reverse"
+  },
+  "system_profile": {
+    "purpose": "Surface safety-relevant evidence to help authorized humans pause an AV test before a collision or unsafe continued operation.",
+    "user_groups": ["Remote safety operators", "Safety drivers", "Fleet safety managers"],
+    "decision_impact": "A recommendation can cause a human to pause a public-road test; failure to escalate can expose pedestrians, cyclists, passengers, and road users to injury.",
+    "data_types": ["Vehicle telemetry", "Camera-derived object labels", "Route and ODD status", "Safety-driver attention events; no raw biometric retention"],
+    "deployment_context": "A limited, daylight, supervised test fleet on named routes in Vietnam; no passenger service and no driverless deployment.",
+    "target_markets": ["Vietnam"],
+    "system_boundary": {
+      "model": "Rule-assisted risk-ranking model with calibrated confidence thresholds",
+      "application": "Operator console that displays alerts, evidence, and a pause recommendation",
+      "people": ["Safety driver", "Remote safety operator", "Fleet safety lead", "Pedestrians and other road users"],
+      "vendors": ["Vehicle sensor supplier", "Cloud telemetry provider"],
+      "upstream_inputs": ["Sensor fusion events", "ODD policy", "Vehicle health telemetry", "Operator availability signal"],
+      "downstream_decisions": ["Human pause or manual takeover", "Incident escalation", "Return-to-test authorization"]
+    }
+  },
+  "industry_risk_snapshot": {
+    "harm_severity": 5,
+    "high_stakes": 5,
+    "sensitive_data": 3,
+    "affected_scale": 3,
+    "human_review_need": 5,
+    "rationale": "A mistaken or delayed escalation during public-road testing can contribute to serious injury or death and may be hard to reverse. The limited pilot constrains scale, but pedestrians and other non-customers cannot opt out. Telemetry and camera-derived data require controls, while the NTSB Tempe report shows that operator attention and safety governance matter alongside the automated system."
+  },
+  "legal_classification": {
+    "vietnam": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "The pilot processes vehicle and potentially personal data in Vietnam and is safety-critical, but this pack does not establish all transport approvals, controller roles, or cross-border processing facts. Legal and privacy review is therefore required before any public-road pilot.",
+      "source_ids": ["SRC-06"]
+    },
+    "eu": {
+      "status": "high-risk",
+      "rationale": "If the system were placed on the EU market as an AI safety component of a regulated vehicle product, Article 6 of the EU AI Act is relevant. This is an anticipated-market assessment, not a compliance conclusion.",
+      "source_ids": ["SRC-05"]
+    },
+    "other_markets": "No market assessment is made beyond Vietnam and a prospective EU comparison; expansion requires a jurisdiction-specific review.",
+    "legal_review_required": true
+  },
+  "product_metrics": {
+    "success_kpi": "For each approved test week, at least 95% of safety-relevant alerts receive a documented human disposition within five minutes.",
+    "risk_kri": "Weekly rate of high-severity near-miss or missed-escalation investigations is at most 1 per 1,000 supervised test kilometers.",
+    "guardrail_metric": "Hard stop: 0 autonomous test kilometers after a confirmed ODD breach, critical sensor fault, or unavailable human safety operator.",
+    "review_cadence": "Safety review weekly and before each route expansion; re-review immediately after any collision, threshold breach, vendor/model/sensor change, or market change."
+  },
+  "release_decision": {
+    "accountable_product_owner": "Mobility Product Owner",
+    "risk_acceptance_owner": "Chief Safety Officer",
+    "independent_reviewer": "Independent Vehicle Safety Assessor",
+    "decision": "research-only",
+    "release_blockers": ["GAP-01: ODD and manual-takeover safety case is not accepted", "GAP-02: Independent scenario and alert-burden evaluation is incomplete", "GAP-03: Vietnam legal, privacy, and incident-governance gate is open"],
+    "release_conditions": ["Use only synthetic or de-identified telemetry in research", "No public-road pilot until each blocker is done and the Chief Safety Officer accepts residual risk"],
+    "next_review_trigger": "2026-10-15, any collision or near-miss investigation, a guardrail breach, or a material vehicle, sensor, vendor, route, or market change.",
+    "residual_risk_rationale": "Even with a human in the loop, delayed or poorly understood alerts can create automation complacency and expose non-consenting road users to physical harm. Research-only is appropriate until the safety case, operator authority, and independent evidence are complete."
+  }
+}
