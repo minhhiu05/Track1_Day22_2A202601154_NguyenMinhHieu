@@ -8,33 +8,33 @@
   },
   "industry": "healthcare-assistant",
   "product_context": {
-    "product_name": "CareBridge Symptom Triage Assistant",
+    "product_name": "Trợ lý phân luồng triệu chứng CareBridge",
     "product_stage": "discovery",
-    "problem_statement": "Adults seeking non-emergency health information need a consistent way to recognize warning signs and reach an appropriate licensed care channel without treating an AI response as a diagnosis.",
-    "target_users": ["Adult patients", "Clinic triage nurses"],
-    "value_hypothesis": "A bounded assistant that escalates red-flag symptoms to a nurse queue will increase timely appropriate referrals without reducing equity or safety.",
-    "in_scope": ["Vietnamese-language symptom education from clinically approved content", "Consent-based nurse-queue escalation for configured urgent or low-confidence interactions during declared staffed hours", "Human review of a consented interaction only when a qualified nurse queue is staffed"],
-    "non_goals": ["Diagnosis, prescriptions, or treatment plans", "Emergency dispatch decisions", "Nurse outreach, summary transfer, or personal-data sharing without recorded consent", "A promise of nurse review when the queue is unstaffed", "Use by minors or use of real clinical records for model training"],
-    "user_journey_moment": "After an adult describes symptoms and before they decide whether to contact a clinic, emergency service, or self-care resource.",
+    "problem_statement": "Người trưởng thành tìm kiếm thông tin sức khỏe không khẩn cấp cần một cách nhất quán để nhận biết dấu hiệu cảnh báo và tiếp cận kênh chăm sóc có giấy phép phù hợp, mà không xem phản hồi của AI là chẩn đoán.",
+    "target_users": ["Bệnh nhân trưởng thành", "Điều dưỡng phân luồng của phòng khám"],
+    "value_hypothesis": "Một trợ lý có phạm vi giới hạn, chuyển các triệu chứng cờ đỏ đến hàng đợi điều dưỡng, sẽ tăng số lượt chuyển tuyến phù hợp và kịp thời mà không làm giảm tính công bằng hoặc an toàn.",
+    "in_scope": ["Cung cấp thông tin giáo dục về triệu chứng bằng tiếng Việt từ nội dung đã được phê duyệt về lâm sàng", "Chuyển đến hàng đợi điều dưỡng dựa trên sự đồng ý của người dùng cho các tương tác khẩn cấp đã cấu hình hoặc có độ tin cậy thấp trong giờ được công bố có nhân sự trực", "Con người chỉ rà soát tương tác mà người dùng đã đồng ý chuyển tiếp khi hàng đợi có điều dưỡng đủ năng lực đang trực"],
+    "non_goals": ["Chẩn đoán, kê đơn hoặc lập phác đồ điều trị", "Quyết định điều phối cấp cứu", "Chủ động liên hệ điều dưỡng, chuyển bản tóm tắt hoặc chia sẻ dữ liệu cá nhân khi chưa có sự đồng ý được ghi nhận", "Hứa hẹn điều dưỡng sẽ rà soát khi hàng đợi không có người trực", "Dùng cho người chưa thành niên hoặc dùng hồ sơ lâm sàng thật để huấn luyện mô hình"],
+    "user_journey_moment": "Sau khi một người trưởng thành mô tả triệu chứng và trước khi họ quyết định liên hệ phòng khám, dịch vụ cấp cứu hoặc nguồn tự chăm sóc.",
     "target_launch_or_review_date": "2026-10-15",
     "automation_level": "decision-support",
-    "fallback_experience": "If the assistant is unavailable or low-confidence, it shows clinic and emergency contact options and makes no diagnosis. For a configured emergency red flag, it shows immediate emergency action and never self-care-only advice. It sends a minimal summary to a nurse queue only when the adult records consent and the queue is staffed; otherwise it does not promise human follow-up and shows emergency or in-hours care contacts.",
+    "fallback_experience": "Khi trợ lý không khả dụng hoặc có độ tin cậy thấp, trợ lý hiển thị lựa chọn liên hệ phòng khám và cấp cứu, đồng thời không đưa ra chẩn đoán. Với một cờ đỏ cấp cứu đã cấu hình, trợ lý hiển thị hành động cấp cứu ngay và không bao giờ chỉ đưa lời khuyên tự chăm sóc. Trợ lý chỉ gửi bản tóm tắt tối thiểu đến hàng đợi điều dưỡng khi người trưởng thành đã ghi nhận sự đồng ý và hàng đợi đang có người trực; nếu không, trợ lý không hứa hẹn có người theo dõi và hiển thị liên hệ cấp cứu hoặc chăm sóc trong giờ làm việc.",
     "decision_reversibility": "partially-reversible"
   },
   "system_profile": {
-    "purpose": "Provide bounded health-information support and route possible urgent symptoms to qualified human triage without making clinical decisions.",
-    "user_groups": ["Adults seeking clinic information", "Licensed triage nurses", "Clinical safety reviewers"],
-    "decision_impact": "The response may influence when a person seeks care; a missed escalation can delay care while an incorrect response can cause anxiety, burden, or unsafe reliance.",
-    "data_types": ["User-entered symptoms", "Age band only", "Conversation safety flags", "Recorded consent state", "Minimal referral metadata and contact channel only after separate nurse-handoff consent; no medical-record ingestion or training on real clinical records"],
-    "deployment_context": "Research-only Vietnamese-language web prototype using scripted or synthetic test conversations only, with no connection to emergency services or an electronic health record and no storage of real-user symptom text.",
-    "target_markets": ["Vietnam"],
+    "purpose": "Cung cấp hỗ trợ thông tin sức khỏe trong phạm vi giới hạn và chuyển các triệu chứng có thể khẩn cấp đến người phân luồng có chuyên môn mà không đưa ra quyết định lâm sàng.",
+    "user_groups": ["Người trưởng thành tìm kiếm thông tin phòng khám", "Điều dưỡng phân luồng có giấy phép", "Người rà soát an toàn lâm sàng"],
+    "decision_impact": "Phản hồi có thể ảnh hưởng đến thời điểm một người tìm kiếm chăm sóc; bỏ sót việc chuyển tuyến có thể làm chậm chăm sóc, còn phản hồi sai có thể gây lo âu, tăng gánh nặng hoặc tạo sự phụ thuộc không an toàn.",
+    "data_types": ["Triệu chứng do người dùng nhập", "Chỉ nhóm tuổi", "Cờ an toàn của cuộc trò chuyện", "Trạng thái đồng ý đã ghi nhận", "Chỉ dùng siêu dữ liệu chuyển tuyến tối thiểu và kênh liên hệ sau khi có sự đồng ý riêng cho việc chuyển đến điều dưỡng; không nạp hồ sơ bệnh án hoặc huấn luyện bằng hồ sơ lâm sàng thật"],
+    "deployment_context": "Nguyên mẫu web tiếng Việt chỉ phục vụ nghiên cứu, chỉ dùng hội thoại kiểm thử có kịch bản hoặc tổng hợp, không kết nối với dịch vụ cấp cứu hay hồ sơ sức khỏe điện tử và không lưu văn bản triệu chứng của người dùng thật.",
+    "target_markets": ["Việt Nam"],
     "system_boundary": {
-      "model": "Retrieval-grounded language model limited to clinically approved triage content",
-      "application": "Web chat interface with emergency banner, consent gate, declared staffed-hours state, and nurse escalation option",
-      "people": ["Adult user", "Triage nurse", "Clinical Safety Lead", "Clinic Operations Lead", "Privacy Counsel", "Caregivers and family members"],
-      "vendors": ["Cloud model provider", "Secure messaging provider"],
-      "upstream_inputs": ["User-entered symptom text", "Approved clinical content", "Red-flag policy", "Consent state", "Nurse-queue staffing and availability state"],
-      "downstream_decisions": ["Consented human nurse triage during staffed hours", "User contacts emergency or clinic service", "Safety incident review", "No outreach when consent is absent or staffing is unavailable"]
+      "model": "Mô hình ngôn ngữ có truy xuất, bị giới hạn ở nội dung phân luồng đã được phê duyệt về lâm sàng",
+      "application": "Giao diện trò chuyện web có biểu ngữ cấp cứu, cổng đồng ý, trạng thái giờ trực đã công bố và lựa chọn chuyển đến điều dưỡng",
+      "people": ["Người dùng trưởng thành", "Điều dưỡng phân luồng", "Trưởng bộ phận an toàn lâm sàng", "Trưởng vận hành phòng khám", "Cố vấn pháp lý về quyền riêng tư", "Người chăm sóc và thành viên gia đình"],
+      "vendors": ["Nhà cung cấp mô hình đám mây", "Nhà cung cấp nhắn tin bảo mật"],
+      "upstream_inputs": ["Văn bản triệu chứng do người dùng nhập", "Nội dung lâm sàng đã được phê duyệt", "Chính sách cờ đỏ", "Trạng thái đồng ý", "Trạng thái nhân sự trực và khả dụng của hàng đợi điều dưỡng"],
+      "downstream_decisions": ["Điều dưỡng phân luồng cho tương tác đã đồng ý trong giờ trực", "Người dùng liên hệ dịch vụ cấp cứu hoặc phòng khám", "Rà soát sự cố an toàn", "Không chủ động liên hệ khi thiếu sự đồng ý hoặc không có nhân sự trực"]
     }
   },
   "industry_risk_snapshot": {
@@ -43,36 +43,36 @@
     "sensitive_data": 5,
     "affected_scale": 3,
     "human_review_need": 5,
-    "rationale": "These scores are a product-risk triage, not a legal classification. Harm severity and high-stakes are 5 because a response can delay time-sensitive care and that delay can be partly irreversible; sensitive data is 5 because symptom and referral information can be highly sensitive; and human-review need is 5 because users may over-rely on a seemingly empathetic assistant. Affected scale is 3 because current research is scripted and a future pilot is clinic-bounded, not because the potential harm is minor. The case evidence highlights proxy bias, failed external validation, and reported unsafe advice; every score must be re-reviewed before scope expansion."
+    "rationale": "Các điểm này dùng để phân luồng rủi ro sản phẩm, không phải phân loại pháp lý. Mức độ nghiêm trọng của tác hại và tính hệ trọng đều là 5 vì phản hồi có thể làm chậm việc chăm sóc cần theo thời gian và sự chậm trễ đó có thể khó đảo ngược một phần; dữ liệu nhạy cảm là 5 vì thông tin triệu chứng và chuyển tuyến có thể rất nhạy cảm; nhu cầu rà soát bởi con người là 5 vì người dùng có thể quá tin vào một trợ lý có vẻ thấu cảm. Quy mô ảnh hưởng là 3 vì nghiên cứu hiện tại có kịch bản và đợt thí điểm tương lai bị giới hạn trong phòng khám, không phải vì tác hại tiềm ẩn là nhỏ. Bằng chứng từ các trường hợp cho thấy thiên lệch do biến đại diện, thất bại trong xác thực độc lập và lời khuyên không an toàn được báo cáo; mọi điểm phải được rà soát lại trước khi mở rộng phạm vi."
   },
   "legal_classification": {
     "vietnam": {
       "status": "uncertain-requires-legal-review",
-      "rationale": "Vietnam is the target market. At this research-only stage, the final controller and processor roles, consent and retention design, vendor and data locations, health-service boundary, and intended purpose are not final. The current personal-data and AI instruments require counsel to assess applicability, including whether the high-risk list applies, before real-user data processing or public use; no legal classification is inferred from the risk snapshot.",
+      "rationale": "Việt Nam là thị trường mục tiêu. Ở giai đoạn chỉ nghiên cứu này, vai trò bên kiểm soát và bên xử lý dữ liệu, thiết kế đồng ý và lưu giữ, vị trí của nhà cung cấp và dữ liệu, ranh giới dịch vụ y tế và mục đích dự kiến cuối cùng chưa được chốt. Các công cụ pháp lý hiện hành về dữ liệu cá nhân và AI đòi hỏi cố vấn pháp lý đánh giá khả năng áp dụng, bao gồm việc danh mục rủi ro cao có áp dụng hay không, trước khi xử lý dữ liệu người dùng thật hoặc sử dụng công khai; không suy ra phân loại pháp lý từ ảnh chụp rủi ro này.",
       "source_ids": ["SRC-06", "SRC-09", "SRC-10", "SRC-11"]
     },
     "eu": {
       "status": "uncertain-requires-legal-review",
-      "rationale": "The European Union is not a target market for this release and is used only as a prospective comparison. The no-diagnosis boundary leaves insufficient facts to determine medical-device or safety-component status, while future EU market placement or an intended medical-device or safety-component use could change the analysis. Legal review must assess Article 6, Annex I, intended purpose, and timing before any EU expansion.",
+      "rationale": "Liên minh Châu Âu không phải thị trường mục tiêu của bản phát hành này và chỉ được dùng để so sánh cho tương lai. Ranh giới không chẩn đoán khiến chưa đủ dữ kiện để xác định trạng thái thiết bị y tế hoặc bộ phận an toàn; việc đưa ra thị trường EU trong tương lai hoặc sử dụng theo mục đích thiết bị y tế hay bộ phận an toàn có thể thay đổi đánh giá. Cần rà soát pháp lý Điều 6, Phụ lục I, mục đích dự kiến và thời điểm trước mọi hoạt động mở rộng sang EU.",
       "source_ids": ["SRC-05"]
     },
-    "other_markets": "No market beyond Vietnam is in scope. The EU comparison is prospective only; any expansion requires a separate assessment of local health-service, AI, data-protection, consumer, and medical-device rules.",
+    "other_markets": "Không có thị trường nào ngoài Việt Nam trong phạm vi. So sánh với EU chỉ dành cho tương lai; mọi mở rộng cần được đánh giá riêng theo quy định địa phương về dịch vụ y tế, AI, bảo vệ dữ liệu, người tiêu dùng và thiết bị y tế.",
     "legal_review_required": true
   },
   "product_metrics": {
-    "success_kpi": "During declared staffed pilot hours, at least 95% of consenting non-emergency urgent interactions receive nurse acknowledgement within 10 minutes, reported weekly with numerator and denominator by urgency, Vietnamese-language variant, consent state, and staffing state.",
-    "risk_kri": "Each week, an independent licensed clinician adjudicates all configured emergency-red-flag and low-confidence interactions plus a random sample of other interactions; the unsafe-response rate must be at most 1 per 1,000 adjudicated interactions, reported with numerator and denominator by category, language variant, consent state, and staffing state.",
-    "guardrail_metric": "Hard stop: 0 configured emergency-red-flag interactions may omit immediate emergency instruction or present self-care-only advice, and 0 nurse handoffs may occur without recorded consent; any breach pauses the affected flow.",
-    "review_cadence": "The Clinical Safety Lead and an independent licensed clinician review weekly during research and before any model, content, vendor, data-flow, or market expansion; they re-review immediately after an unsafe-response finding, configured emergency miss, guardrail breach, complaint, or legal/intended-purpose change."
+    "success_kpi": "Trong giờ thí điểm đã công bố có nhân sự trực, ít nhất 95% tương tác khẩn cấp nhưng không phải cấp cứu, đã có sự đồng ý, nhận được xác nhận của điều dưỡng trong 10 phút; báo cáo hằng tuần cả tử số và mẫu số theo mức độ khẩn, biến thể tiếng Việt, trạng thái đồng ý và trạng thái nhân sự trực.",
+    "risk_kri": "Mỗi tuần, một bác sĩ lâm sàng độc lập có giấy phép thẩm định mọi tương tác cờ đỏ cấp cứu đã cấu hình và có độ tin cậy thấp, cùng một mẫu ngẫu nhiên của các tương tác khác; tỷ lệ phản hồi không an toàn phải không quá 1 trên 1.000 tương tác đã thẩm định, được báo cáo cả tử số và mẫu số theo nhóm, biến thể ngôn ngữ, trạng thái đồng ý và trạng thái nhân sự trực.",
+    "guardrail_metric": "Ngưỡng dừng cứng: 0 tương tác có cờ đỏ cấp cứu đã cấu hình được phép thiếu chỉ dẫn cấp cứu ngay hoặc chỉ đưa lời khuyên tự chăm sóc, và 0 lượt chuyển đến điều dưỡng được phép xảy ra khi chưa có đồng ý được ghi nhận; mọi vi phạm phải tạm dừng luồng bị ảnh hưởng.",
+    "review_cadence": "Trưởng bộ phận an toàn lâm sàng và một bác sĩ lâm sàng độc lập có giấy phép rà soát hằng tuần trong giai đoạn nghiên cứu và trước mọi mở rộng mô hình, nội dung, nhà cung cấp, luồng dữ liệu hoặc thị trường; họ phải rà soát lại ngay sau khi phát hiện phản hồi không an toàn, bỏ sót cờ đỏ cấp cứu đã cấu hình, vi phạm ngưỡng dừng, khiếu nại hoặc thay đổi pháp lý hay mục đích dự kiến."
   },
   "release_decision": {
-    "accountable_product_owner": "Healthcare Product Owner",
-    "risk_acceptance_owner": "Clinical Safety Officer",
-    "independent_reviewer": "Independent Licensed Clinician",
+    "accountable_product_owner": "Chủ sở hữu sản phẩm mảng y tế",
+    "risk_acceptance_owner": "Cán bộ phụ trách an toàn lâm sàng",
+    "independent_reviewer": "Bác sĩ lâm sàng độc lập có giấy phép",
     "decision": "research-only",
-    "release_blockers": ["GAP-01: Emergency escalation and consent-bound nurse-handoff protocol is not validated", "GAP-02: Independent clinical, calibration, and equity validation is incomplete", "GAP-03: Vietnam privacy, AI, and health-service legal review is open", "GAP-04: Immediate pause and independently approved restart drill is not demonstrated", "GAP-05: Consent, minimal-data transfer, and staffed-hours operating controls are not demonstrated"],
-    "release_conditions": ["Research question: can clinician-approved content, emergency guardrails, consent-bound handoff, and Vietnamese-language evaluation meet pre-specified safety and equity thresholds using only scripted or synthetic conversations?", "Permitted research data are scripted or synthetic conversations only; no real-user symptom text, contact details, referral metadata, or medical records are processed.", "No public pilot until GAP-01 through GAP-05 are done, the Clinical Safety Officer accepts documented residual risk, an independent clinician signs the validation report, and legal and privacy owners sign the Vietnam launch memo."],
-    "next_review_trigger": "2026-10-15; any unsafe-response finding, configured emergency miss, unauthorised handoff, guardrail breach, complaint, or material model, content, vendor, data-flow, intended-purpose, or market change.",
-    "residual_risk_rationale": "No residual risk is accepted for public use at this stage. Clinically approved content, consent-bound escalation, and human review may reduce but cannot remove harmful advice, missed urgency, privacy loss, inequitable performance, or false reliance; none is yet validated in the intended workflow. Research-only prevents the prototype from becoming a substitute for qualified care before evidence, legal review, staffing controls, and exercised incident controls exist."
+    "release_blockers": ["GAP-01: Chưa xác thực quy trình chuyển tuyến cấp cứu và chuyển tiếp đến điều dưỡng có ràng buộc đồng ý", "GAP-02: Chưa hoàn tất xác thực độc lập về lâm sàng, hiệu chuẩn và công bằng", "GAP-03: Rà soát pháp lý về quyền riêng tư, AI và dịch vụ y tế tại Việt Nam còn mở", "GAP-04: Chưa chứng minh diễn tập tạm dừng tức thời và khởi động lại được phê duyệt độc lập", "GAP-05: Chưa chứng minh các kiểm soát vận hành về đồng ý, chuyển dữ liệu tối thiểu và giờ có nhân sự trực"],
+    "release_conditions": ["Câu hỏi nghiên cứu: nội dung được phê duyệt lâm sàng, ngưỡng bảo vệ cấp cứu, chuyển tiếp có ràng buộc đồng ý và đánh giá tiếng Việt có thể đáp ứng các ngưỡng an toàn và công bằng đã xác định trước khi chỉ dùng hội thoại có kịch bản hoặc tổng hợp hay không?", "Dữ liệu nghiên cứu được phép chỉ là hội thoại có kịch bản hoặc tổng hợp; không xử lý văn bản triệu chứng, thông tin liên hệ, siêu dữ liệu chuyển tuyến hoặc hồ sơ bệnh án của người dùng thật.", "Không thí điểm công khai cho đến khi GAP-01 đến GAP-05 hoàn thành, Cán bộ phụ trách an toàn lâm sàng chấp nhận rủi ro còn lại đã được lập hồ sơ, bác sĩ độc lập ký báo cáo xác thực, và các chủ sở hữu pháp lý cùng quyền riêng tư ký biên bản ra mắt tại Việt Nam."],
+    "next_review_trigger": "2026-10-15; mọi phát hiện phản hồi không an toàn, bỏ sót cờ đỏ cấp cứu đã cấu hình, chuyển tiếp không được phép, vi phạm ngưỡng dừng, khiếu nại hoặc thay đổi đáng kể về mô hình, nội dung, nhà cung cấp, luồng dữ liệu, mục đích dự kiến hay thị trường.",
+    "residual_risk_rationale": "Ở giai đoạn này không chấp nhận rủi ro còn lại cho sử dụng công khai. Nội dung được phê duyệt lâm sàng, chuyển tuyến có ràng buộc đồng ý và rà soát bởi con người có thể giảm nhưng không thể loại bỏ lời khuyên gây hại, bỏ sót tính khẩn cấp, mất quyền riêng tư, hiệu năng thiếu công bằng hoặc sự tin cậy sai lệch; chưa có kiểm soát nào được xác thực trong luồng vận hành dự kiến. Chỉ nghiên cứu giúp ngăn nguyên mẫu trở thành vật thay thế cho chăm sóc có chuyên môn trước khi có bằng chứng, rà soát pháp lý, kiểm soát nhân sự trực và kiểm soát sự cố đã được diễn tập."
   }
 }
